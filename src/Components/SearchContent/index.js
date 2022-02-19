@@ -43,7 +43,7 @@ const SearchContent = () => {
                               setTotalCount(res.data?.total_count)
                               setSearchLoad(false)
                               // mapData(res?.data?.items)
-                              console.log(res?.data)
+                              // console.log(res?.data)
                               res.data?.items.length > 0 && myRef.current.scrollTo(0, 0)
                          }
                     })
@@ -75,22 +75,22 @@ const SearchContent = () => {
           setText(e.target.value)
      }
 
-     const mapData = (url) => {
-          const name = ''
-          const followers = ''
-          getOneUser(url, setSearchLoad)
-               .then(res => {
-                    setSearchLoad(false)
-                    name = res.data.name
-                    followers = res.data.followers
-                    console.log(res.data.name)
-               })
+     // const mapData = (url) => {
+     //      const name = ''
+     //      const followers = ''
+     //      getOneUser(url, setSearchLoad)
+     //           .then(res => {
+     //                setSearchLoad(false)
+     //                name = res.data.name
+     //                followers = res.data.followers
+     //                console.log(res.data.name)
+     //           })
 
-          return {
-               name,
-               followers
-          }
-     }
+     //      return {
+     //           name,
+     //           followers
+     //      }
+     // }
 
 
      return (

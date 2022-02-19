@@ -30,9 +30,10 @@ export const getMoreFoundUsers = async (query, page, setLoading) => {
           })
 }
 
-export const getOneUser = async (url, setLoading) => {
+export const getOneUser = async (user, setLoading) => {
      return await axios({
-          url,
+          baseURL,
+          url: `/users/${user}`,
           method: 'GET'
      })
           .catch((err) => {
