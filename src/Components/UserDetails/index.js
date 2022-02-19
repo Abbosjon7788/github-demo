@@ -29,14 +29,14 @@ const UserDetails = () => {
                                              <LazyLoadImage src={data.avatar_url} width="100%" height="100%" effect={'blur'} />
                                         </div>
                                         <div className="left">
-                                             <div className="box">
+                                             {data.name && <div className="box">
                                                   <span>Name:</span>
                                                   <span className="name">{data.name}</span>
-                                             </div>
-                                             <div className="box">
+                                             </div>}
+                                             {data.login && <div className="box">
                                                   <span>Login:</span>
                                                   <span className="name">{data.login}</span>
-                                             </div>
+                                             </div>}
                                         </div>
                                    </div>
                                    <div className="box">
