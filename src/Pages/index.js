@@ -8,7 +8,7 @@ const Pages = () => {
      return (
           <Switch>
                <Route path="/search" component={SearchContent} />
-               <Route path="/user-info" component={UserInfo} />
+               <Route path="/user-info/:name" component={UserInfo} />
                <Route path="/history" component={History} />
 
                <Redirect to='/search' />
