@@ -1,9 +1,14 @@
 import React from 'react';
+import Navbar from './Components/Navbar'
+import Pages from './Pages'
 import './App.scss';
 
 function App() {
   return (
-    <div>hello react</div>
+    <div>
+      <Navbar />
+      <Pages />
+    </div>
   )
 }
 
