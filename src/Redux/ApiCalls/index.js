@@ -4,10 +4,11 @@ import { error } from '../../Components/MyAlerts'
 
 const baseURL = 'https://api.github.com/'
 
-export const searchUsers = async (query, setLoading, setDataLoad) => {
+export const searchUsers = async (query, setLoading) => {
      return await axios({
           baseURL,
           url: `/search/users?q=${query}`,
+          // url: `/users/${query}`,
           method: 'GET',
      })
           .catch((err) => {
@@ -22,6 +23,18 @@ export const getMoreFoundUsers = async (query, page, setLoading) => {
           baseURL,
           url: `/search/users?q=${query}&page=${page}`,
           method: 'GET',
+     })
+          .catch((err) => {
+               error(err?.message)
+               setLoading(false)
+               checkNetworkErr(err)
+          })
+}
+
+export const getOneUser = async (url, setLoading) => {
+     return await axios({
+          url,
+          method: 'GET'
      })
           .catch((err) => {
                error(err?.message)

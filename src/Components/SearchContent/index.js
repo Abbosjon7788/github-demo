@@ -3,7 +3,7 @@ import { IoSearchOutline } from 'react-icons/io5'
 import { useHistory } from 'react-router-dom'
 import { PulseLoader, ClipLoader } from 'react-spinners';
 import { useInView } from 'react-intersection-observer';
-import { searchUsers, getMoreFoundUsers } from '../../Redux/ApiCalls'
+import { searchUsers, getMoreFoundUsers, getOneUser } from '../../Redux/ApiCalls'
 
 const SearchContent = () => {
      const history = useHistory();
@@ -27,7 +27,7 @@ const SearchContent = () => {
      }, [text])
 
      useEffect(() => {
-          const timeout = setTimeout(() => { setQuery(text); console.log(text) }, 500)
+          const timeout = setTimeout(() => setQuery(text), 500)
           return () => clearTimeout(timeout)
      }, [text])
 
@@ -39,8 +39,9 @@ const SearchContent = () => {
                          if (isMounted) {
                               setData(res?.data?.items)
                               setTotalCount(res.data?.total_count)
-                              console.log(res?.data)
                               setSearchLoad(false)
+                              // mapData(res?.data?.items)
+                              console.log(res?.data)
                               res.data?.items.length > 0 && myRef.current.scrollTo(0, 0)
                          }
                     })
@@ -70,8 +71,25 @@ const SearchContent = () => {
           }
      }, [inView])
 
+     // useEffect(() => {
+     //      if (data && data.length > 0) {
+     //           mapData(data)
+     //      }
+     // }, [data])
+
      const handleChanges = (e) => {
           setText(e.target.value)
+     }
+
+     const mapData = (data) => {
+          data.map(item => {
+               getOneUser(item.url, setSearchLoad)
+                    .then(res => {
+                         setSearchLoad(false)
+                         console.log(res.data)
+                    })
+               console.log(item.url)
+          })
      }
 
 
