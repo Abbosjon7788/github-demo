@@ -11,6 +11,32 @@ body {
      background-color: #f5f5f5;
      font-family: "Roboto";
 }
+// React toastify style
+.Toastify__toast-container--top-right {
+     top: 50px !important;
+}
+
+.Toastify__toast--success {
+     background-color: #07bc0c !important;
+}
+.Toastify__toast--warning {
+     background-color: #f1c40f !important;
+}
+.Toastify__toast--error {
+     background-color: #eb5757 !important;
+}
+
+.Toastify__toast-icon {
+     svg {
+          fill: white;
+     }
+}
+
+.Toastify__close-button {
+     opacity: 1 !important;
+     color: white !important;
+     outline: none !important;
+}
 
 .my-alert {
      display: flex;

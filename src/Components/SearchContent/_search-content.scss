@@ -29,7 +29,9 @@
                width: 24px;
                height: 24px;
                margin-right: 4px;
-               cursor: pointer;
+               display: flex;
+               align-items: center;
+               justify-content: center;
                .search-icon {
                     font-size: 20px;
                }
@@ -113,5 +115,13 @@
                     padding-top: 8px;
                }
           }
+     }
+     .not-found {
+          width: 100%;
+          text-align: center;
+          margin-top: 24px;
+          font-weight: 500;
+          font-size: 24px;
+          line-height: 28px;
      }
 }
