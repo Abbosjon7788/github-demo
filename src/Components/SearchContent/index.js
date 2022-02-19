@@ -110,7 +110,7 @@ const SearchContent = () => {
                               <ul ref={myRef} className="found-users">
                                    {
                                         data.map((item, index) => (
-                                             <li onClick={() => history.push(`/user-info/${item.login}`)} ref={data.length - 1 === index ? ref : null} key={index}>
+                                             <li onClick={() => history.push(`/user-repo/${item.login}`)} ref={data.length - 1 === index ? ref : null} key={index}>
                                                   <div>
                                                        <div className="user-login">
                                                             <label>Login:</label>

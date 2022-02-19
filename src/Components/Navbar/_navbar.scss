@@ -1,8 +1,9 @@
 .navbar {
      display: flex;
      align-items: center;
-     background-color: rgba(#00afff, 20%);
+     background-color: rgba(#0086ff, 20%);
      padding: 16px 24px;
+     z-index: 20;
      .home-menu {
           display: flex;
           align-items: center;
@@ -37,7 +38,7 @@
           line-height: 24px;
           text-decoration: none;
           transition: all 0.3s ease;
-          color: #00afff;
+          color: #0086ff;
           &:hover {
                text-decoration: underline;
                text-decoration-thickness: 2px;

@@ -1,5 +1,7 @@
 @import "./Components/Navbar/navbar";
 @import "./Components/SearchContent/search-content";
+@import "./Components/UserRepo/user-repo";
+@import "./Components/Loader/loader";
 
 * {
      box-sizing: border-box;
@@ -11,6 +13,31 @@ body {
      background-color: #f5f5f5;
      font-family: "Roboto";
 }
+
+.page {
+     height: calc(100vh - 80px);
+     overflow-y: auto;
+     &::-webkit-scrollbar {
+          width: 4px;
+     }
+     &::-webkit-scrollbar-track {
+          border-radius: 10px;
+     }
+     &::-webkit-scrollbar-thumb {
+          background: #0086ff;
+          border-radius: 10px;
+     }
+}
+
+.not-found {
+     width: 100%;
+     text-align: center;
+     margin-top: 24px;
+     font-weight: 500;
+     font-size: 24px;
+     line-height: 28px;
+}
+
 // React toastify style
 .Toastify__toast-container--top-right {
      top: 50px !important;
