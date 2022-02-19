@@ -67,6 +67,10 @@
                     opacity: 0;
                     transition: all 0.2s ease;
                     border-radius: 8px;
+                    box-shadow: 0px 1px 4px rgba(33, 33, 52, 0.1);
+                    border: 1px solid #bdbdbd;
+                    border-radius: 8px;
+
                     &.show {
                          transform: translateY(0);
                          opacity: 1;
@@ -75,7 +79,7 @@
                          display: block;
                          height: 15px;
                          width: 15px;
-                         background-color: white;
+                         background-color: #ffffff;
                          border: 1px solid #bdbdbd;
                          position: absolute;
                          top: -6px;
@@ -86,14 +90,34 @@
                          border-radius: 0 0 0 0.25em;
                          z-index: 30;
                     }
+                    .clear-all-wrapper {
+                         display: flex;
+                         justify-content: right;
+                         padding: 8px;
+                         border-bottom: 1px solid #bdbdbd;
+                         .clear-all {
+                              color: #0086ff;
+                              z-index: 35;
+                              font-size: 12px;
+                              cursor: pointer;
+                              text-align: right;
+                              display: block;
+                         }
+                    }
                }
 
                .menu {
-                    width: 200px;
-                    border-radius: 8px;
-                    border: 1px solid #bdbdbd;
-                    box-shadow: 0px 1px 4px rgba(33, 33, 52, 0.1);
+                    width: 250px;
                     padding: 6px;
+
+                    .not-history {
+                         font-size: 500;
+                         line-height: 18px;
+                         font-size: 14px;
+                         color: #bdbdbd;
+                         text-align: center;
+                         padding: 6px 0;
+                    }
 
                     ul {
                          overflow-y: auto;
