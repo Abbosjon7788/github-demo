@@ -81,7 +81,7 @@ const UserRepo = () => {
                                                   </div>}
                                                   <div className="box">
                                                        <span>Stars:</span>
-                                                       <span>23</span>
+                                                       <span>{item.stargazers_count}</span>
                                                   </div>
                                                   <div className="box">
                                                        <span>Created at:</span>
