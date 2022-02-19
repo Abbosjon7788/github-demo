@@ -4,6 +4,7 @@ import { useHistory } from 'react-router-dom'
 import { PulseLoader, ClipLoader } from 'react-spinners';
 import { useInView } from 'react-intersection-observer';
 import { searchUsers, getMoreFoundUsers, getOneUser } from '../../Redux/ApiCalls'
+import { LazyLoadImage } from 'react-lazy-load-image-component'
 
 const SearchContent = () => {
      const history = useHistory();
@@ -111,14 +112,19 @@ const SearchContent = () => {
                                    {
                                         data.map((item, index) => (
                                              <li onClick={() => history.push(`/user-repo/${item.login}`)} ref={data.length - 1 === index ? ref : null} key={index}>
-                                                  <div>
-                                                       <div className="user-login">
-                                                            <label>Login:</label>
-                                                            <span>{item.login}</span>
+                                                  <div className="user-content">
+                                                       <div className="user-img">
+                                                            <LazyLoadImage src={item.avatar_url} effect={'blur'} w="100%" height="100%" />
                                                        </div>
-                                                       <div className="user-name">
-                                                            <label>Name:</label>
-                                                            <span>Abbosjon Nosirov</span>
+                                                       <div className="right">
+                                                            <div className="user-login">
+                                                                 <label>Login:</label>
+                                                                 <span>{item.login}</span>
+                                                            </div>
+                                                            <div className="user-name">
+                                                                 <label>Name:</label>
+                                                                 <span>Abbosjon Nosirov</span>
+                                                            </div>
                                                        </div>
                                                   </div>
                                                   <div className="user-followers">
