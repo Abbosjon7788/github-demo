@@ -23,6 +23,7 @@ const SearchContent = () => {
                setSearchLoad(true)
           } else {
                setSearchLoad(false)
+               setData(null)
           }
      }, [text])
 
@@ -51,8 +52,6 @@ const SearchContent = () => {
 
      useEffect(() => {
           if (inView) {
-               console.log(data.length)
-               console.log(totalCount)
                if (!loading && data.length < totalCount) {
                     setLoading(true)
                     getMoreFoundUsers(query, pageNum, setLoading)
@@ -71,25 +70,25 @@ const SearchContent = () => {
           }
      }, [inView])
 
-     // useEffect(() => {
-     //      if (data && data.length > 0) {
-     //           mapData(data)
-     //      }
-     // }, [data])
-
      const handleChanges = (e) => {
           setText(e.target.value)
      }
 
-     const mapData = (data) => {
-          data.map(item => {
-               getOneUser(item.url, setSearchLoad)
-                    .then(res => {
-                         setSearchLoad(false)
-                         console.log(res.data)
-                    })
-               console.log(item.url)
-          })
+     const mapData = (url) => {
+          const name = ''
+          const followers = ''
+          getOneUser(url, setSearchLoad)
+               .then(res => {
+                    setSearchLoad(false)
+                    name = res.data.name
+                    followers = res.data.followers
+                    console.log(res.data.name)
+               })
+
+          return {
+               name,
+               followers
+          }
      }
 
 
@@ -111,7 +110,7 @@ const SearchContent = () => {
                               <ul ref={myRef} className="found-users">
                                    {
                                         data.map((item, index) => (
-                                             <li onClick={() => history.push(`/user-info/${item.id}`)} ref={data.length - 1 === index ? ref : null} key={index}>
+                                             <li onClick={() => history.push(`/user-info/${item.login}`)} ref={data.length - 1 === index ? ref : null} key={index}>
                                                   <div>
                                                        <div className="user-login">
                                                             <label>Login:</label>
@@ -119,7 +118,7 @@ const SearchContent = () => {
                                                        </div>
                                                        <div className="user-name">
                                                             <label>Name:</label>
-                                                            <span>Abbosjon Siddikov</span>
+                                                            <span>Abbosjon Nosirov</span>
                                                        </div>
                                                   </div>
                                                   <div className="user-followers">

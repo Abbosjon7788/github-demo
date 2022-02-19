@@ -8,7 +8,6 @@ export const searchUsers = async (query, setLoading) => {
      return await axios({
           baseURL,
           url: `/search/users?q=${query}`,
-          // url: `/users/${query}`,
           method: 'GET',
      })
           .catch((err) => {
@@ -35,6 +34,19 @@ export const getOneUser = async (url, setLoading) => {
      return await axios({
           url,
           method: 'GET'
+     })
+          .catch((err) => {
+               error(err?.message)
+               setLoading(false)
+               checkNetworkErr(err)
+          })
+}
+
+export const getUserRepos = async (user, setLoading) => {
+     return await axios({
+          baseURL,
+          url: `/users/${user}/repos`,
+          method: 'GET',
      })
           .catch((err) => {
                error(err?.message)
