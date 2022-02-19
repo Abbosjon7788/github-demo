@@ -54,3 +54,16 @@ export const getUserRepos = async (user, setLoading) => {
                checkNetworkErr(err)
           })
 }
+
+export const getMoreRepos = async (user, page, setLoading) => {
+     return await axios({
+          baseURL,
+          url: `/users/${user}/repos?page=${page}`,
+          method: 'GET',
+     })
+          .catch((err) => {
+               error(err?.message)
+               setLoading(false)
+               checkNetworkErr(err)
+          })
+}

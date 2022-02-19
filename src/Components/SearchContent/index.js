@@ -28,7 +28,7 @@ const SearchContent = () => {
      }, [text])
 
      useEffect(() => {
-          const timeout = setTimeout(() => setQuery(text), 500)
+          const timeout = setTimeout(() => setQuery(text), 200)
           return () => clearTimeout(timeout)
      }, [text])
 
