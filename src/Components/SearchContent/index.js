@@ -39,11 +39,11 @@ const SearchContent = () => {
                searchUsers(text, setSearchLoad)
                     .then(res => {
                          if (isMounted) {
-                              setData(res?.data?.items)
+                              setData(res.data?.items)
                               setTotalCount(res.data?.total_count)
                               setSearchLoad(false)
                               // mapData(res?.data?.items)
-                              // console.log(res?.data)
+                              console.log(res.data || {})
                               res.data?.items.length > 0 && myRef.current.scrollTo(0, 0)
                          }
                     })
@@ -57,7 +57,7 @@ const SearchContent = () => {
                     setLoading(true)
                     getMoreFoundUsers(query, pageNum, setLoading)
                          .then(res => {
-                              const current = res?.data?.items
+                              const current = res.data?.items
                               setLoading(false)
                               setPageNum(p => p + 1)
                               if (current && current.length > 0) {

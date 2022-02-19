@@ -1,7 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
+import HistoryMenu from './HistoryMenu'
 
 const Navbar = () => {
+     const [menu, setMenu] = useState(false)
+
      return (
           <div className="navbar">
                <Link to="/" className="home-menu">
@@ -10,7 +13,10 @@ const Navbar = () => {
                     </div>
                     <p>Github</p>
                </Link>
-               <Link to="/history" className="history-link">History</Link>
+               <div className="history-link-wrapper">
+                    <div onClick={() => setMenu(true)} className="history-link">History</div>
+                    {menu && <HistoryMenu setMenu={setMenu} />}
+               </div>
           </div>
      )
 }
